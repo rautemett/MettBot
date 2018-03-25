@@ -13,7 +13,7 @@ import (
 
 const (
 	hawo_address  = "hawo.net:7337"
-	izibi_address = "http://tempi.0x4a42.net:7337/"
+	izibi_address = "http://temp.0x4a42.net/"
 )
 
 type TemperaturPlugin struct {
