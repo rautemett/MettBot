@@ -12,7 +12,8 @@ import (
 )
 
 const (
-	hawo_address  = "hawo.net:7337"
+	hawo_address  = "hawo.net:1337"
+	lukas_address = "temp.kurz.pw:7337"
 	izibi_address = "http://temp.0x4a42.net/"
 )
 
@@ -32,6 +33,8 @@ func (q *TemperaturPlugin) Usage(cmd string) string {
 	switch cmd {
 	case "ht":
 		return "prints the temperatur at HaWo"
+	case "lt":
+		return "prints the temperatur at lukas mansion"
 	case "it":
 		return "prints the temperatur at izibis home"
 	}
@@ -41,6 +44,7 @@ func (q *TemperaturPlugin) Usage(cmd string) string {
 func (q *TemperaturPlugin) Register(ic *ircclient.IRCClient) {
 	q.ic = ic
 	q.ic.RegisterCommandHandler("ht", 0, 0, q)
+	q.ic.RegisterCommandHandler("lt", 0, 0, q)
 	q.ic.RegisterCommandHandler("it", 0, 0, q)
 }
 
@@ -56,6 +60,8 @@ func (q *TemperaturPlugin) ProcessCommand(cmd *ircclient.IRCCommand) {
 	switch cmd.Command {
 	case "ht":
 		q.ic.Reply(cmd, q.getHaWo())
+	case "lt":
+		q.ic.Reply(cmd, q.getLukas())
 	case "it":
 		q.ic.Reply(cmd, q.getIzibi())
 	}
@@ -91,6 +97,14 @@ func (q *TemperaturPlugin) getHaWo() string {
 		return "Error accessing \"" + hawo_address + "\": " + err.Error()
 	}
 	return "Aktuelle Temperatur am HaWo: " + answer
+}
+
+func (q *TemperaturPlugin) getLukas() string {
+	answer, err := q.getTCP(lukas_address)
+	if err != nil {
+		return "Error accessing \"" + lukas_address + "\": " + err.Error()
+	}
+	return answer
 }
 
 func (q *TemperaturPlugin) getIzibi() string {
