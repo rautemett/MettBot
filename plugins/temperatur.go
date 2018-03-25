@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	hawo_address  = "hawo.net:1337"
-	lukas_address = "temp.kurz.pw:7337"
+	hawo_address  = "hawo.net:7337"
+	lukas_address = "temp.kurz.pw:1337"
 	izibi_address = "http://temp.0x4a42.net/"
 )
 
