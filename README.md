@@ -1,5 +1,5 @@
 MettBot
 =======
 
-This is the bot serving #mett on the EosinNet IRC Network (`irc://irc.ps0ke.de:2342/#mett`).
+This is the bot serving #mett on IRCmett (`ircs://ssl.ircmett.de:6697/#mett`).
 It is based on the [IRC-bot](`https://bitbucket.org/dpaulus/go-faui2k11/`) serving #faui2k11 by Dominik Paulus. His original license informations can be found in `LICENSE`.
