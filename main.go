@@ -15,6 +15,7 @@ func main() {
 	s := ircclient.NewIRCClient("mettbot.cfg")
 	s.RegisterPlugin(new(plugins.KexecPlugin))
 	s.RegisterPlugin(new(plugins.DecisionPlugin))
+	s.RegisterPlugin(new(plugins.DicePlugin))
 	s.RegisterPlugin(new(plugins.ListPlugins))
 	//s.RegisterPlugin(new(plugins.LoggerPlugin))
 	s.RegisterPlugin(new(plugins.QuitHandler))
